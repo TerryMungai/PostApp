@@ -15,9 +15,8 @@ class PostViewModel {val postRepository: PostRepository): ViewModel() {
                 postLiveData.postValue(response.body())
             }
             else{
-                postFailed
+                postsFailedLiveData.postValue(response.errorBody()?.string())
             }
         }
     }
-}
 }
